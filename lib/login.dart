@@ -89,6 +89,7 @@ class CustomFormState extends State<Login> {
                   ),
                   TextFormField(
                     controller: _passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
                       labelText: "Password",
                       hintText: "Enter password",

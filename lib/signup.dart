@@ -80,6 +80,7 @@ class _SignupCustomFormState extends State<Signup> {
                     },
                   ),
                   TextFormField(
+                    obscureText: true,
                     controller: passwordController,
                     decoration: InputDecoration(
                       labelText: "Password",
@@ -95,6 +96,7 @@ class _SignupCustomFormState extends State<Signup> {
                     },
                   ),
                   TextFormField(
+                    obscureText: true,
                     controller: confirmPasswordController,
                     decoration: InputDecoration(
                       labelText: "Confirm Password",
@@ -204,7 +206,7 @@ class _SignupCustomFormState extends State<Signup> {
 
             actions: [
               TextButton(onPressed: (){
-                Navigator.pushNamed(context, '/home');
+                Navigator.popAndPushNamed(context, '/home');
               },
                   child: Text("Ok"))
             ],

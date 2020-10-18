@@ -31,9 +31,9 @@ class _HomeState extends State<Home> {
                     child: Icon(Icons.account_circle_outlined),
                   ),
                   SizedBox(height: 15,),
-                  Text("${userInfo.username}"),
+                  Text("${ userInfo == null ? "" : userInfo.username}"),
                   SizedBox(height: 15,),
-                  Text("${userInfo.email}"),
+                  Text("${userInfo == null ? "" : userInfo.email}"),
                 ],
               ),
             ),
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
       ),
       body: Center(
         child: Container(
-          child: Text("Welcome ${userInfo.username}" , style: TextStyle(fontSize:  30),),
+          child: Text("Welcome ${userInfo == null ? "" : userInfo.username}" , style: TextStyle(fontSize:  30),),
         ),
       ),
     );
@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
             actions: [
               TextButton(onPressed: () async {
                 await FirebaseAuth.instance.signOut();
-                Navigator.pushNamed(context, '/login');
+                Navigator.pushNamedAndRemoveUntil(context, '/login', (r) => false);
               },
                   child: Text("Ok"))
             ],
